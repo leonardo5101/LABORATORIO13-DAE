@@ -1,0 +1,67 @@
+﻿@model Proyecto_C.Models.Salida
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+<section class="content-header">
+    <h1 align="center">Editar Salida</h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_ID)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_ID)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_Nombre)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_Nombre)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_Destino)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_Destino)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_Numero)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_Numero)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_Tecnico)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_Tecnico)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_Hora)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_Hora)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.LabelFor(model => model.Salida_Asistente)</label>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.Salida_Asistente)
+                        </div>
+                    }
+                    @Html.ActionLink("Atrás", "Listar", "Salida")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

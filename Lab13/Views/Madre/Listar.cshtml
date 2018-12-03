@@ -1,0 +1,51 @@
+﻿@model List<Proyecto_C.Models.Madre>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Madres</h3>
+            </div>
+            <div class="box-body table-responsive">
+                <table id="tbl_madres" class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Edad</th>
+                            <th>Sangre</th>
+                            <th>Factor</th>
+                            <th>Entrada</th>
+                            <th>ID Examen</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl_body_table">
+                        @foreach (var madre in Model)
+                        {
+                            <tr>
+                                <td>@madre.Madre_ID</td>
+                                <td>@madre.Madre_Nombre</td>
+                                <td>@madre.Madre_Apellido</td>
+                                <td>@madre.Madre_Edad</td>
+                                <td>@madre.Madre_Sangre</td>
+                                <td>@madre.Madre_Factor</td>
+                                <td>@madre.Madre_Entrada</td>
+                                <td>@madre.Madre_Examen_ID</td>
+                                <td>
+                                    <button value="Actualizar" title="Actualizar" class="btn btn-primary" onclick="location.href='@Url.Action("Editar","Madre", new { id = madre.Madre_ID},null)'"><i class="glyphicon glyphicon-pencil"></i></button>
+                                    <button value="Eliminar" title="Eliminar" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

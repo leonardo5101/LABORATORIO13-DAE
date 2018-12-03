@@ -1,0 +1,51 @@
+﻿@model List<Proyecto_C.Models.Infante>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Infantes</h3>
+            </div>
+            <div class="box-body table-responsive">
+                <table id="tbl_pacientes" class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Lugar de Nac</th>
+                            <th>Hora Nacimiento</th>
+                            <th>Sexo</th>
+                            <th>Examen General</th>
+                            <th>Examen Físico</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl_body_table">
+                        @foreach (var infante in Model)
+                        {
+                        <tr>
+                            <td>@infante.Infante_ID</td>
+                            <td>@infante.Infante_Nombre</td>
+                            <td>@infante.Infante_Apellido</td>
+                            <td>@infante.Infante_Lugar</td>
+                            <td>@infante.Infante_Hora</td>
+                            <td>@infante.Infante_Sexo</td>
+                            <td>@infante.Infante_Examen_Gen</td>
+                            <td>@infante.Infante_Examen_Fis</td>
+                            
+                            <td>
+                                <button value="Actualizar" title="Actualizar" class="btn btn-primary" onclick="location.href='@Url.Action("Editar","Infante", new { id = infante.Infante_ID},null)'"><i class="glyphicon glyphicon-pencil"></i></button>
+                                <button value="Eliminar" title="Eliminar" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

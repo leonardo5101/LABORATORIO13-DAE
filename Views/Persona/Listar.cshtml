@@ -1,0 +1,60 @@
+﻿@model List<Proyecto_C.Models.Persona>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Personas</h3>
+            </div>
+            <div class="box-body table-responsive">
+                <table id="tbl_pacientes" class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Sexo</th>
+                            <th>Celular</th>
+                            <th>Username</th>
+                            <th>Tipo ID</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl_body_table">
+                        @foreach (var persona in Model)
+                        {
+                        <tr>
+                            <td>@persona.Persona_ID</td>
+                            <td>@persona.Persona_Nombre</td>
+                            <td>@persona.Persona_Apellido</td>
+                            <td>@persona.Persona_Email</td>
+                            <td>@persona.Persona_FecNac</td>
+                            <td>@persona.Persona_Sexo</td>
+                            <td>@persona.Persona_Celular</td>
+                            <td>@persona.Persona_Username</td>
+                            @if (persona.Persona_Tipo_ID == 1)
+                            {
+                                <td>Admin</td>
+                            }
+                            else
+                            {
+                                <td>Guest</td>
+                            }
+                            <td>
+                                <button value="Actualizar" title="Actualizar" class="btn btn-primary" onclick="location.href='@Url.Action("Editar","Persona", new { id = persona.Persona_ID},null)'"><i class="glyphicon glyphicon-pencil"></i></button>
+                                <button value="Eliminar" title="Eliminar" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
